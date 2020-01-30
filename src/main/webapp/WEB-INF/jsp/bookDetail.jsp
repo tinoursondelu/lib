@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Search a book</title>
+<title>Book Detail</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="css/all.min.css">
@@ -30,25 +30,10 @@
 		</span>
 	</header>
 
-	<h2 class="text-center display-3 mt-5 mb-5">Search a book</h2>
+	<h2 class="text-center display-3 mt-5 mb-5">Book details</h2>
 
-	<form action="bookSearch" method="GET">
-		<div class="row col-12 container-fluid">
-
-			<div class="col-2 offset-2">
-
-				<select class="selectpicker mr-4" data-live-search="true"
-					data-style="btn-success" title="Research a book" data-size="3">
-					<c:forEach items="${books}" var="book">
-						<option value="${book.id}">${book.title}</option>
-					</c:forEach>
-				</select>
-				
-				
-
-			</div>
-			
-		</div>
+	<form action="bookDetail" method="GET">
+		<h3>${book.title}</h3>
 	</form>
 
 	<footer class="navbar navbar-dark bg-success mt-auto mb-0 rounded">

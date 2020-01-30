@@ -19,6 +19,13 @@ $(".club-detail-btn").click(function() {
 		});
 });
 
+$(".selectpicker").change(function() {
+	console.log($(this).val());
+	var id = $(this).val();
+	$.get("bookSearch?bookId=" + id, function(data, status) {
+		window.location.replace("http://localhost:8080/lib/bookDetail?bookId=" + id)
+	});
+});
 
 //// Initialisation des pages
 //function init() {

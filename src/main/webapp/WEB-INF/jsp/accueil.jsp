@@ -27,7 +27,9 @@
         </span>
     </header>
     
-    <p>${s}</p>
+     <c:if test="${not empty error }">
+     <p class="alert alert-danger text-center"><strong>${error}</strong></p>
+     </c:if>
 
 	<h2 class="text-center display-3">Welcome !</h2>
 
@@ -36,7 +38,7 @@
         <div class="col-6">
             <a class="btn btn-success btn-lg m-1" href="bookAdd">Add Book</a>
 			<a class="btn btn-success btn-lg m-1" href="bookSearch">Search a book</a>
-			<a class="btn btn-dark btn-lg m-1" href="signature.html"></a>
+			<a class="btn btn-success btn-lg m-1" href=""></a>
         </div>
 
     </div>

@@ -32,6 +32,13 @@
 		<servlet-name>plop</servlet-name>
 		<servlet-class>controllers.plop</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>BookDetailServlet</display-name>
+		<servlet-name>BookDetailServlet</servlet-name>
+		<servlet-class>controllers.BookDetailServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>AddClubServlet</servlet-name>
 		<url-pattern>/AddClubServlet</url-pattern>
@@ -47,6 +54,10 @@
 	<servlet-mapping>
 		<servlet-name>plop</servlet-name>
 		<url-pattern>/plop</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BookDetailServlet</servlet-name>
+		<url-pattern>/BookDetailServlet</url-pattern>
 	</servlet-mapping>
 
 </web-app>
