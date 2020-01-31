@@ -31,7 +31,7 @@ public class BookDetailServlet extends HttpServlet {
 			request.getRequestDispatcher("WEB-INF/jsp/bookDetail.jsp").forward(request, response);
 		} else {
 			String error = "Book search failed";
-			request.setAttribute("error", error);
+			request.setAttribute("errorBookSearch", error);
 			request.getRequestDispatcher("WEB-INF/jsp/accueil.jsp").forward(request, response);
 		}
 	}
@@ -40,8 +40,30 @@ public class BookDetailServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		Book book = new Book();
+		if (request.getParameter("idHide")!=null && request.getParameter("idHide")!= "") {
+			int id = Integer.parseInt(request.getParameter("idHide"));
+			book = bookService.findById(id);
+			request.setAttribute("book", book);
+			}
+		
+		if (request.getParameter("borrowing")!=null) {
+			int id = Integer.parseInt(request.getParameter("idHide"));
+			bookService.borrowing(id);
+			request.getRequestDispatcher("WEB-INF/jsp/bookDetail.jsp").forward(request, response);
+		}
+		if (request.getParameter("returned")!=null) {
+			int id = Integer.parseInt(request.getParameter("idHide"));
+			bookService.returned(id);
+			request.getRequestDispatcher("WEB-INF/jsp/bookDetail.jsp").forward(request, response);
+		}
+		if (request.getParameter("stocked")!=null) {
+			int id = Integer.parseInt(request.getParameter("idHide"));
+			bookService.stocked(id);
+			request.getRequestDispatcher("WEB-INF/jsp/bookDetail.jsp").forward(request, response);
+		}
+		
 	}
 
 }

@@ -27,6 +27,10 @@ $(".selectpicker").change(function() {
 	});
 });
 
+$("#title").change(function() {
+	console.log($(this).val());
+});
+
 //// Initialisation des pages
 //function init() {
 //    // Le bouton de déploiement de la navbar à un status '0' --> navbar fermée et chervon ouvrant

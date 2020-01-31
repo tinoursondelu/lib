@@ -1,6 +1,8 @@
 package controllers;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -53,7 +55,17 @@ public class AddBookServlet extends HttpServlet {
 					request.getParameter("shelfSection"));
 		}
 		
-		bookService.add(request.getParameter("name"), a, s);
+		System.out.println(request.getParameter("title"));
+		bookService.add(request.getParameter("title"),
+				request.getParameter("subtitle"),
+				(LocalDate.parse((request.getParameter("publicationDate")), 
+						(DateTimeFormatter.ISO_LOCAL_DATE))),
+				request.getParameter("edition"),
+				(LocalDate.parse((request.getParameter("editionDate")), 
+						(DateTimeFormatter.ISO_LOCAL_DATE))),
+				a,
+				s,
+				request.getParameter("isbn"));
 		
 		response.sendRedirect(response.encodeRedirectURL(request.getContextPath()));
 	}

@@ -25,7 +25,17 @@ body {
 	font-size: 2rem;
 }
 
+h3 {
+	font-size: 3rem;
+}
 
+.bold {
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
 
 
 

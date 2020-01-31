@@ -19,16 +19,19 @@
 <body class="bg-dark">
 
     <header class="navbar navbar-dark bg-success rounded">
-        <a class="navbar-brand" href="theme3.html"><h1 class="application-name display-3">Library</h1></a>
-        <span>
-            <a class="btn btn-dark btn-lg m-1" href="Acceuil.html"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a>
-			<a class="btn btn-dark btn-lg m-1" href="user.html"><i class="fas fa-user mr-1"></i>User</a>
-			<a class="btn btn-dark btn-lg m-1" href="signature.html"><i class="fas fa-user mr-1"></i>User</a>
-        </span>
-    </header>
+		<a class="navbar-brand" href="<%=request.getContextPath()%>">
+			<h1 class="application-name display-3">Library</h1>
+		</a> <span> <a class="btn btn-dark btn-lg m-1" href="Acceuil.html"><i
+				class="fas fa-sign-out-alt mr-1"></i>Logout</a> <a
+			class="btn btn-dark btn-lg m-1" href="<%=request.getContextPath()%>"><i
+				class="fas fa-user mr-1"></i>Accueil</a> <a
+			class="btn btn-dark btn-lg m-1" href="signature.html"><i
+				class="fas fa-user mr-1"></i>User</a>
+		</span>
+	</header>
     
-     <c:if test="${not empty error }">
-     <p class="alert alert-danger text-center"><strong>${error}</strong></p>
+     <c:if test="${not empty errorBookSearch }">
+     <p class="alert alert-danger text-center"><strong>${errorBookSearch}</strong></p>
      </c:if>
 
 	<h2 class="text-center display-3">Welcome !</h2>

@@ -32,8 +32,42 @@
 
 	<h2 class="text-center display-3 mt-5 mb-5">Book details</h2>
 
-	<form action="bookDetail" method="GET">
-		<h3>${book.title}</h3>
+	<div class="col-12 row">
+
+		<form class="col-6 offset-1 text-center" action="bookDetail"
+			method="GET">
+			<h3>
+				" <span class="bold">${book.title}</span> <span class="italic">${book.subtitle}</span>"
+			</h3>
+			<p>Writed by ${book.author.lastName} ${book.author.firstName}</p>
+			<p>Publication date: ${book.publicationDate}</p>
+			<p>Editor: ${book.edition}</p>
+			<p>Reference: ${book.reference}</p>
+			<p>Section: ${book.shelf.section}</p>
+			<p>Shelf: ${book.shelf.name}</p>
+			<p>ISBN: ${book.isbn}</p>
+		</form>
+
+		<section class="col-3 offset-1">
+		<c:if test="${book.returned == true}"><p>This book is returned</c:if>
+		<c:if test="${book.stocked == true}">and is stocked</p></c:if>
+		<c:if test="${book.returned == false}"><p>This book is borrowed</c:if>
+		<c:if test="${book.stocked == false}">and is not stocked</p></c:if>
+		
+		</section>
+
+	</div>
+
+	<form class="col-6 offset-1 text-center mt-5" action="bookDetail"
+		method="post">
+		<input type="text" class="btn btn-lg btn-success m-4 d-none"
+			name="idHide" id="idHide" value="${book.id}"></input> <input
+			type="submit" class="btn btn-lg btn-success m-4" name="borrowing"
+			id="borrowing" value="Borrowing"></input> <input type="submit"
+			class="btn btn-lg btn-success m-4" name="returned" id="returned"
+			value="Returned"></input> <input type="submit"
+			class="btn btn-lg btn-success m-4" name="stocked" id="stocked"
+			value="Stocked"></input>
 	</form>
 
 	<footer class="navbar navbar-dark bg-success mt-auto mb-0 rounded">

@@ -24,7 +24,7 @@ public class SearchBookServlet extends HttpServlet {
     BookService bookService = new BookService();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Book> books = bookService.findByName("");
+		List<Book> books = bookService.findByTitle("");
 		request.setAttribute("books", books);
 		for (Book book : books) {
 			System.out.println(book);

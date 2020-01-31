@@ -1,5 +1,7 @@
 package models;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,6 +14,15 @@ public class Book {
     @GeneratedValue
     private int id;
     private String title;
+    private String subtitle;
+    private LocalDate publicationDate;
+    private String edition;
+    private LocalDate editionDate;
+    private LocalDate aadBD;
+    private String reference;
+    private String isbn;
+    private boolean returned;
+    private boolean stocked;
     @ManyToOne
     private Author author;
     @ManyToOne
@@ -35,7 +46,15 @@ public class Book {
         this.title = title;
     }
 
-    public Author getAuthor() {
+    public String getSubtitle() {
+		return subtitle;
+	}
+
+	public void setSubtitle(String subtitle) {
+		this.subtitle = subtitle;
+	}
+
+	public Author getAuthor() {
         return author;
     }
 
@@ -50,6 +69,70 @@ public class Book {
     public void setShelf(Shelf shelf) {
         this.shelf = shelf;
     }
+
+	public boolean isReturned() {
+		return returned;
+	}
+
+	public void setReturned(boolean returned) {
+		this.returned = returned;
+	}
+
+	public boolean isStocked() {
+		return stocked;
+	}
+
+	public void setStocked(boolean stocked) {
+		this.stocked = stocked;
+	}
+
+	public LocalDate getPublicationDate() {
+		return publicationDate;
+	}
+
+	public void setPublicationDate(LocalDate publicationDate) {
+		this.publicationDate = publicationDate;
+	}
+
+	public String getEdition() {
+		return edition;
+	}
+
+	public void setEdition(String edition) {
+		this.edition = edition;
+	}
+
+	public LocalDate getEditionDate() {
+		return editionDate;
+	}
+
+	public void setEditionDate(LocalDate editionDate) {
+		this.editionDate = editionDate;
+	}
+
+	public LocalDate getAadBD() {
+		return aadBD;
+	}
+
+	public void setAadBD(LocalDate aadBD) {
+		this.aadBD = aadBD;
+	}
+
+	public String getReference() {
+		return reference;
+	}
+
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
 
 	@Override
 	public String toString() {

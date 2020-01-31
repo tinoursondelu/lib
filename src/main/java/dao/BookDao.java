@@ -13,15 +13,15 @@ public class BookDao extends GenericDao<Book> {
         super(Book.class);
     }
     
-	public List<Book> findByName(String nom, Session s) {
-		return (List<Book>) s.createQuery("from Book where title like :nom")
-				.setParameter("nom", "%"+nom+"%")
+	public List<Book> findByTitle(String title, Session s) {
+		return (List<Book>) s.createQuery("from Book where title like :nom or subtitle like :nom")
+				.setParameter("nom", "%"+ title +"%")
 				.list();
 	}
 	
-	public List<Book> findByName(String nom) {
+	public List<Book> findByTitle(String title) {
 		Session s = HibernateUtil.getSessionFactory().openSession();
-		List<Book> p = findByName(nom, s);
+		List<Book> p = findByTitle(title, s);
 		s.close();
 		return p;
 	}

@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="css/bootstrap-select.min.css">
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 
+<link rel="shortcut icon" href="#">
+
 </head>
 
 <body class="bg-dark">
@@ -35,15 +37,14 @@
 	<form action="bookSearch" method="GET">
 		<div class="row col-12 container-fluid">
 
-			<div class="col-2 offset-2">
+			<div class="col-2 offset-5">
 
 				<select class="selectpicker mr-4" data-live-search="true"
 					data-style="btn-success" title="Research a book" data-size="3">
 					<c:forEach items="${books}" var="book">
-						<option value="${book.id}">${book.title}</option>
+						<option value="${book.id}">${book.title} ${book.subtitle}</option>
 					</c:forEach>
 				</select>
-				
 				
 
 			</div>
